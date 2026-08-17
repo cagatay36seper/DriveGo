@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveGo - Kaydol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/loginstyle.css">
+</head>
+<body>
+    <main class="auth-shell">
+        <section class="auth-visual register-visual">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i> Drive<span>Go</span>
+            </a>
+            <div>
+                <p class="auth-eyebrow">Yeni üyelik</p>
+                <h1>Filoyu incele, tarih seç, rezervasyonunu oluştur.</h1>
+                <p>Ücretsiz hesap oluşturduktan sonra müsait araçları görebilir ve ödeme yöntemini seçerek rezervasyon alabilirsin.</p>
+            </div>
+            <div class="auth-badges">
+                <span><i class="fas fa-calendar-check"></i> Müsaitlik Kontrolü</span>
+                <span><i class="fas fa-wallet"></i> Toplam Fiyat</span>
+                <span><i class="fas fa-lock"></i> Güvenli Akış</span>
+            </div>
+        </section>
+
+        <section class="auth-container register-container">
+            <div class="auth-header">
+                <a href="/" class="logo compact-logo">
+                    <i class="fas fa-car"></i> Drive<span>Go</span>
+                </a>
+                <h2>Kaydol</h2>
+                <p>Ücretsiz hesap oluştur ve kiralamaya başla</p>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" placeholder="kullanici_adi" minlength="3" maxlength="30" required>
+                    <div class="error-message" id="usernameError">Kullanıcı adı 3-30 karakter olmalı</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-posta Adresi</label>
+                    <input type="email" id="email" placeholder="ornek@email.com" required>
+                    <div class="error-message" id="emailError">Geçerli bir e-posta adresi girin</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Tam Ad</label>
+                    <input type="text" id="fullName" placeholder="Ad Soyad" minlength="2" maxlength="100" required>
+                    <div class="error-message" id="fullNameError">Ad soyad 2-100 karakter olmalı</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" placeholder="05XX XXX XX XX" pattern="^\+?[0-9]{10,15}$" required>
+                    <div class="error-message" id="phoneError">Geçerli bir telefon numarası girin</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <div class="password-toggle">
+                        <input type="password" id="password" placeholder="••••••••" minlength="6" maxlength="64" required>
+                        <button type="button" class="toggle-btn" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="passwordError">Şifre en az 6 karakter olmalı</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Şifre Tekrar</label>
+                    <div class="password-toggle">
+                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-btn" id="toggleConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="confirmError">Şifreler eşleşmiyor</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="driverLicense">Ehliyet No</label>
+                    <input type="text" id="driverLicense" placeholder="Ehliyet numarası" minlength="5" maxlength="20" required>
+                </div>
+
+                <button type="submit" class="btn-auth" id="registerBtn">
+                    <i class="fas fa-user-plus"></i> Kaydol
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                Zaten hesabın var mı? <a href="/login">Giriş Yap</a>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/src/pages/register.js"></script>
+</body>
+</html>

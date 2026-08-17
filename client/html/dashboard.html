@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveGo - Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i>
+                Drive<span>Go</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/dashboard" class="active">Dashboard</a></li>
+                <li><a href="/#cars">Araçlar</a></li>
+                <li><a href="/why">Neden Biz?</a></li>
+                <li><a href="/contact">İletişim</a></li>
+                <li><button id="logoutBtn" class="btn btn-outline btn-sm" type="button"><i class="fas fa-right-from-bracket"></i> Çıkış</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-hero">
+        <div class="dashboard-hero-content">
+            <p class="eyebrow">Araç Kiralama Paneli</p>
+            <h1 id="welcomeTitle">Dashboard</h1>
+            <p id="welcomeSubtitle">Müsait araçları tarih aralığına göre filtreleyin.</p>
+        </div>
+    </section>
+
+    <main class="dashboard-shell">
+        <div id="dashboardAlert" class="alert"></div>
+        <section class="search-section dashboard-search">
+            <div class="search-card">
+                <form class="search-grid" id="availabilityForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Başlangıç Tarihi</label>
+                        <input type="date" id="dashboardStartDate">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-check"></i> Bitiş Tarihi</label>
+                        <input type="date" id="dashboardEndDate">
+                    </div>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i> Müsait Araçları Göster
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="dashboard-stats" id="statsGrid"></section>
+
+        <section class="cars-section dashboard-panel">
+            <div class="section-header">
+                <h2>Müsait <span>Araçlar</span></h2>
+                <p id="carsMeta" class="cars-meta">Yükleniyor...</p>
+            </div>
+            <div class="cars-grid" id="carsGrid"></div>
+        </section>
+
+        <section class="reservations-section dashboard-panel">
+            <div class="section-header">
+                <h2>Benim <span>Rezervasyonlarım</span></h2>
+                <p class="cars-meta">Aktif ve geçmiş rezervasyonlarınız fiyat özetiyle burada görünür.</p>
+            </div>
+            <div class="reservations-grid" id="reservationsGrid"></div>
+        </section>
+
+        <section class="reviews-section dashboard-panel">
+            <div class="section-header">
+                <h2>Filo <span>Değerlendirmeleri</span></h2>
+                <p class="cars-meta">Kiraladığınız araç için puan verip deneyiminizi paylaşabilirsiniz.</p>
+            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="reserveModal" aria-hidden="true">
+        <div class="modal-card reserve-modal-card">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">Rezervasyon Özeti</p>
+                    <h3 id="reserveModalTitle">Araç Kirala</h3>
+                </div>
+                <button type="button" class="modal-close" id="reserveModalClose" aria-label="Kapat">×</button>
+            </div>
+            <form id="reserveForm" class="reserve-form">
+                <input type="hidden" id="reserveCarId">
+                <input type="hidden" id="reserveDailyPrice">
+                <div class="reserve-summary" id="reserveSummary"></div>
+                <div class="reserve-date-grid">
+                    <div class="form-group">
+                        <label for="reserveStart">Başlangıç Tarihi</label>
+                        <input type="date" id="reserveStart" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reserveEnd">Bitiş Tarihi</label>
+                        <input type="date" id="reserveEnd" required>
+                    </div>
+                </div>
+                <div class="reserve-price-box" id="reservePriceBox"></div>
+                <div class="payment-box">
+                    <h4><i class="fas fa-credit-card"></i> Ödeme Yöntemi</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="kart" checked>
+                            <span><i class="fas fa-credit-card"></i> Kart</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="havale">
+                            <span><i class="fas fa-building-columns"></i> Havale</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="teslimatta">
+                            <span><i class="fas fa-key"></i> Teslimatta</span>
+                        </label>
+                    </div>
+                    <div class="card-fields" id="cardFields">
+                        <div class="form-group">
+                            <label for="cardHolder">Kart Üzerindeki İsim</label>
+                            <input type="text" id="cardHolder" placeholder="Ad Soyad">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">Kart Numarası</label>
+                            <input type="text" id="cardNumber" inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242">
+                        </div>
+                    </div>
+                    <p class="payment-note" id="paymentNote">Demo ödeme akışında kart numarası saklanmaz, yalnızca son 4 hane rezervasyon özetinde gösterilir.</p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="reserveCancel">Vazgeç</button>
+                    <button type="submit" class="btn btn-primary" id="reserveSubmit">
+                        <i class="fas fa-circle-check"></i> Rezervasyon Al
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="reviewModal" aria-hidden="true">
+        <div class="modal-card review-modal-card">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">Araç Değerlendirmesi</p>
+                    <h3 id="reviewModalTitle">Puanını paylaş</h3>
+                </div>
+                <button type="button" class="modal-close" id="reviewModalClose" aria-label="Kapat">×</button>
+            </div>
+            <form id="reviewForm" class="review-form">
+                <input type="hidden" id="reviewCarId">
+                <div class="review-car-context" id="reviewCarContext"></div>
+                <fieldset class="rating-fieldset">
+                    <legend>Puanınız</legend>
+                    <div class="rating-options">
+                        <label><input type="radio" name="reviewRating" value="1"><span aria-label="1 yıldız"><i class="fas fa-star"></i></span></label>
+                        <label><input type="radio" name="reviewRating" value="2"><span aria-label="2 yıldız"><i class="fas fa-star"></i></span></label>
+                        <label><input type="radio" name="reviewRating" value="3"><span aria-label="3 yıldız"><i class="fas fa-star"></i></span></label>
+                        <label><input type="radio" name="reviewRating" value="4"><span aria-label="4 yıldız"><i class="fas fa-star"></i></span></label>
+                        <label><input type="radio" name="reviewRating" value="5" checked><span aria-label="5 yıldız"><i class="fas fa-star"></i></span></label>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label for="reviewComment">Yorumunuz</label>
+                    <textarea id="reviewComment" rows="5" minlength="3" maxlength="500" required placeholder="Araç ve kiralama deneyiminizi paylaşın."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="reviewCancel">Vazgeç</button>
+                    <button type="submit" class="btn btn-primary" id="reviewSubmit"><i class="fas fa-star"></i> Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/src/pages/dashboard.js"></script>
+</body>
+</html>

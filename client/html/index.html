@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveGo - Rent a Car</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i>
+                Drive<span>Go</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Ana Sayfa</a></li>
+                <li><a href="#cars">Araçlar</a></li>
+                <li><a href="/why">Neden Biz?</a></li>
+                <li><a href="/contact">İletişim</a></li>
+                <li>
+                    <a href="login" class="btn btn-outline btn-sm">
+                        <i class="fas fa-user"></i> Giriş Yap
+                    </a>
+                </li>
+                <li>
+                    <a href="register" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user-plus"></i> Kaydol
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Premium araç kiralama deneyimi</p>
+            <h1>Yolculuğuna <span>doğru araçla</span> başla</h1>
+            <p>DriveGo ile ekonomik şehir araçlarından premium SUV modellerine kadar geniş filoyu incele, tarih seç ve rezervasyonunu saniyeler içinde oluştur.</p>
+            <div class="hero-actions">
+                <a href="/register" class="btn btn-secondary">
+                    <i class="fas fa-search"></i> Hemen Kirala
+                </a>
+                <a href="#cars" class="btn btn-ghost">
+                    <i class="fas fa-car-side"></i> Filoyu İncele
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-card">
+            <form class="search-grid" id="searchForm">
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Konum</label>
+                    <input type="text" placeholder="Şehir veya havalimanı">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar"></i> Alış Tarihi</label>
+                    <input type="date" id="pickupDate">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-check"></i> İade Tarihi</label>
+                    <input type="date" id="returnDate">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-users"></i> Kişi Sayısı</label>
+                    <select>
+                        <option>1 Kişi</option>
+                        <option selected>2 Kişi</option>
+                        <option>3 Kişi</option>
+                        <option>4 Kişi</option>
+                        <option>5+ Kişi</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i> Araç Ara
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="why-section" id="why">
+        <div class="section-intro">
+            <p class="section-eyebrow">Neden DriveGo?</p>
+            <h2>Rezervasyon sürecini hızlı, anlaşılır ve güvenli hale getiriyoruz.</h2>
+        </div>
+        <div class="why-grid">
+            <article class="why-card">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Güvenli Kiralama</h3>
+                <p>Kullanıcı oturumu, istek doğrulama ve rate limit koruması ile rezervasyon akışı kontrollü çalışır.</p>
+            </article>
+            <article class="why-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Net Fiyat Özeti</h3>
+                <p>Günlük fiyat, kiralama süresi ve toplam tutar rezervasyon sırasında kullanıcıya açıkça gösterilir.</p>
+            </article>
+            <article class="why-card">
+                <i class="fas fa-car-side"></i>
+                <h3>Çeşitli Araç Filosu</h3>
+                <p>Ekonomik, hibrit, elektrikli, SUV, ticari ve premium araç seçenekleri aynı panelden görüntülenebilir.</p>
+            </article>
+            <article class="why-card">
+                <i class="fas fa-clock"></i>
+                <h3>Anlık Müsaitlik</h3>
+                <p>Tarih aralığına göre dolu araçlar filtrelenir, sadece kiralanabilir araçlar listelenir.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="cars-section" id="cars">
+        <div class="section-header">
+            <h2>Öne Çıkan <span>Araçlar</span></h2>
+            <div class="view-options">
+                <button class="active" title="Grid Görünüm"><i class="fas fa-th"></i></button>
+                <button title="Liste Görünüm"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+
+        <div class="cars-grid featured-cars-grid">
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80" alt="BMW 320i M Sport">
+                    <span class="car-badge popular">Premium</span>
+                </div>
+                <div class="car-details">
+                    <h3>BMW 320i M Sport</h3>
+                    <p class="car-type">Sedan • Benzin • Otomatik</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-users"></i> 5</span>
+                        <span><i class="fas fa-suitcase"></i> 2</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="car-price">
+                        <span class="price">₺3.850 <small>/gün</small></span>
+                        <a href="/register" class="btn btn-primary btn-sm">Kirala</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80" alt="Tesla Model Y">
+                    <span class="car-badge">Elektrik</span>
+                </div>
+                <div class="car-details">
+                    <h3>Tesla Model Y Long Range</h3>
+                    <p class="car-type">SUV • Elektrik • Otomatik</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-users"></i> 5</span>
+                        <span><i class="fas fa-charging-station"></i> EV</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="car-price">
+                        <span class="price">₺5.200 <small>/gün</small></span>
+                        <a href="/register" class="btn btn-primary btn-sm">Kirala</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Porsche Macan">
+                    <span class="car-badge popular">Lüks</span>
+                </div>
+                <div class="car-details">
+                    <h3>Porsche Macan</h3>
+                    <p class="car-type">SUV • Benzin • Otomatik</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-users"></i> 5</span>
+                        <span><i class="fas fa-gauge-high"></i> Sport</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="car-price">
+                        <span class="price">₺7.900 <small>/gün</small></span>
+                        <a href="/register" class="btn btn-primary btn-sm">Kirala</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?auto=format&fit=crop&w=900&q=80" alt="Toyota Corolla Hybrid">
+                    <span class="car-badge">Hibrit</span>
+                </div>
+                <div class="car-details">
+                    <h3>Toyota Corolla Hybrid</h3>
+                    <p class="car-type">Sedan • Hibrit • Otomatik</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-users"></i> 5</span>
+                        <span><i class="fas fa-leaf"></i> Hibrit</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="car-price">
+                        <span class="price">₺2.650 <small>/gün</small></span>
+                        <a href="/register" class="btn btn-primary btn-sm">Kirala</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-20">
+            <a href="/register" class="btn btn-outline">
+                <i class="fas fa-arrow-right"></i> Tüm Araçları Gör
+            </a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-card">
+            <div class="contact-copy">
+                <p class="section-eyebrow">İletişim</p>
+                <h2>Yardıma mı ihtiyacın var?</h2>
+                <p>Rezervasyon, araç seçimi veya fiyatlandırma hakkında destek almak için DriveGo ekibine ulaşabilirsin.</p>
+                <div class="contact-methods">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>Telefon</span>
+                        <strong>0850 000 34 34</strong>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta</span>
+                        <strong>destek@drivego.com</strong>
+                    </div>
+                    <div>
+                        <i class="fas fa-location-dot"></i>
+                        <span>Ofis</span>
+                        <strong>İstanbul / Türkiye</strong>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Ad Soyad</label>
+                    <input type="text" placeholder="Adınızı yazın">
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" placeholder="ornek@mail.com">
+                </div>
+                <div class="form-group">
+                    <label>Konu</label>
+                    <select>
+                        <option>Rezervasyon desteği</option>
+                        <option>Araç önerisi</option>
+                        <option>Fiyat bilgisi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mesaj</label>
+                    <textarea rows="4" placeholder="Mesajınızı yazın"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Mesaj Gönder
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4><i class="fas fa-car"></i> DriveGo</h4>
+                <p style="color:#94a3b8; margin-top:10px;">
+                    Şehir içi, tatil ve iş yolculukları için güvenilir araç kiralama platformu.
+                </p>
+            </div>
+            <div>
+                <h4>Hızlı Linkler</h4>
+                <ul>
+                    <li><a href="#cars">Araç Kirala</a></li>
+                    <li><a href="/register">Araç Listesi</a></li>
+                    <li><a href="/why">Neden Biz?</a></li>
+                    <li><a href="/login">Giriş Yap</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Destek</h4>
+                <ul>
+                    <li><a href="/contact">İletişim</a></li>
+                    <li><a href="#">SSS</a></li>
+                    <li><a href="#">İptal Politikası</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Bizi Takip Edin</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 DriveGo Rent a Car. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+    <script type="module" src="/src/pages/home.js"></script>
+</body>
+</html>

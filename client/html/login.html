@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveGo - Giriş Yap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/loginstyle.css">
+</head>
+<body>
+    <main class="auth-shell">
+        <section class="auth-visual">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i> Drive<span>Go</span>
+            </a>
+            <div>
+                <p class="auth-eyebrow">Tekrar hoş geldin</p>
+                <h1>Rezervasyonlarını yönetmeye devam et.</h1>
+                <p>Dashboard üzerinden uygun araçları incele, ödeme yöntemini seç ve rezervasyonlarını takip et.</p>
+            </div>
+            <div class="auth-badges">
+                <span><i class="fas fa-shield-halved"></i> Güvenli Oturum</span>
+                <span><i class="fas fa-credit-card"></i> Demo Ödeme</span>
+                <span><i class="fas fa-car-side"></i> 12+ Araç</span>
+            </div>
+        </section>
+
+        <section class="auth-container">
+            <div class="auth-header">
+                <a href="/" class="logo compact-logo">
+                    <i class="fas fa-car"></i> Drive<span>Go</span>
+                </a>
+                <h2>Giriş Yap</h2>
+                <p>Hesabına giriş yap ve araç kiralamaya başla</p>
+            </div>
+
+            <div id="alert" class="alert"></div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">E-posta Adresi</label>
+                    <input type="email" id="email" placeholder="ornek@email.com" required>
+                    <div class="error-message" id="emailError">Geçerli bir e-posta adresi girin</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <div class="password-toggle">
+                        <input type="password" id="password" placeholder="••••••••" required minlength="6">
+                        <button type="button" class="toggle-btn" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="passwordError">Şifre en az 6 karakter olmalı</div>
+                </div>
+
+                <div class="auth-row">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember"> Beni Hatırla
+                    </label>
+                    <a href="#">Şifremi Unuttum</a>
+                </div>
+
+                <button type="submit" class="btn-auth" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                Hesabın yok mu? <a href="/register">Hemen Kaydol</a>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/src/pages/login.js"></script>
+</body>
+</html>

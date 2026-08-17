@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+node_modules/
+client/html/assets/
+server/db/webch.db
+*.log
